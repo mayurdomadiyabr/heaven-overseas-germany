@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 // =====================================================
@@ -75,27 +76,21 @@ const faqs = [
     a: "Germany has two intakes — Winter (Sep/Oct) and Summer (Mar/Apr). The Winter intake is the larger one with more programs available." },
 ];
 
-// Brand logo — uses /logo.png if present, otherwise stylish monogram
-function GHOLogo({ light = false }: { light?: boolean }) {
+// Brand logo — official GHO logo image
+export function GHOLogo({ light = false, compact = false }: { light?: boolean; compact?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-3">
-      {/* Replace with your real logo by saving file as /public/logo.png */}
-      <picture>
-        <source srcSet="/logo.png" type="image/png" />
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1E2A78] font-extrabold leading-none text-white shadow-md">
-          <span className="text-[#E63223]">G</span>
-          <span>H</span>
-          <span className="text-[#E63223]">O</span>
-        </span>
-      </picture>
-      <div className="leading-tight">
-        <p className={`text-base font-extrabold tracking-tight md:text-lg ${light ? "text-white" : "text-[#1E2A78]"}`}>
-          <span className="text-[#E63223]">G</span>LOBAL <span className="text-[#E63223]">H</span>EAVEN <span className="text-[#E63223]">O</span>VERSEAS
-        </p>
-        <p className={`text-[10px] uppercase tracking-[0.2em] ${light ? "text-white/70" : "text-slate-500"}`}>
-          Study Abroad Consultants
-        </p>
-      </div>
+      <Image
+        src="/logo.png"
+        alt="Global Heaven Overseas Logo"
+        width={220}
+        height={110}
+        priority
+        className={`h-12 w-auto md:h-14 ${light ? "brightness-110" : ""}`}
+      />
+      {compact ? null : (
+        <span className="sr-only">Global Heaven Overseas — Study Abroad Consultants</span>
+      )}
     </Link>
   );
 }
@@ -466,8 +461,16 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className="mx-auto mt-10 max-w-7xl border-t border-slate-800 px-6 pt-6 text-center text-xs">
-          © {new Date().getFullYear()} Global Heaven Overseas®. All rights reserved.
+        <div className="mx-auto mt-10 max-w-7xl border-t border-slate-800 px-6 pt-6 text-xs">
+          <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
+            <p>© {new Date().getFullYear()} Global Heaven Overseas®. All rights reserved.</p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white">Terms of Service</Link>
+              <Link href="/cookies" className="hover:text-white">Cookie Policy</Link>
+              <Link href="/disclaimer" className="hover:text-white">Disclaimer</Link>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
