@@ -13,12 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Heaven Overseas | Study in Germany - Free Tuition Universities",
+  title: "Global Heaven Overseas | Study in Germany - Free Tuition Universities",
   description:
-    "Heaven Overseas helps Indian students study in Germany at top public universities with zero or low tuition fees. Free counseling, admission, visa, and accommodation support.",
+    "Global Heaven Overseas (GHO) helps Indian students study in Germany at top public universities with zero or low tuition fees. Free counseling, admission, visa, and accommodation support.",
   keywords: [
     "Study in Germany",
-    "Heaven Overseas",
+    "Global Heaven Overseas",
+    "GHO",
     "Germany student visa",
     "Germany public universities",
     "MS in Germany",
