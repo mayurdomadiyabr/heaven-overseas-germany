@@ -398,7 +398,7 @@ export default function Home() {
               your eligibility, timeline, and best-fit universities.
             </p>
             <div className="mt-8 space-y-3 text-sm">
-              <p>📞 <a href="tel:+919999999999" className="underline hover:no-underline">+91 99999 99999</a></p>
+              <p>📞 <a href="tel:+4917647625653" className="underline hover:no-underline">+49 176 47625653</a> (Mihir, Germany)</p>
               <p>✉️ <a href="mailto:info@heaven-overseas.com" className="underline hover:no-underline">info@heaven-overseas.com</a></p>
               <p>📍 New Delhi · Hyderabad · Bengaluru</p>
             </div>
@@ -455,7 +455,7 @@ export default function Home() {
           <div>
             <h4 className="font-bold uppercase tracking-wider text-white">Contact</h4>
             <ul className="mt-4 space-y-2 text-sm">
-              <li>📞 +91 99999 99999</li>
+              <li>📞 <a href="tel:+4917647625653" className="hover:text-white">+49 176 47625653</a></li>
               <li>✉️ info@heaven-overseas.com</li>
               <li>📍 New Delhi · Hyderabad · Bengaluru</li>
             </ul>

@@ -142,7 +142,7 @@ export default function PrivacyPolicyPage() {
       <p>
         <strong>Global Heaven Overseas®</strong><br />
         Email: <a href="mailto:info@heaven-overseas.com">info@heaven-overseas.com</a><br />
-        Phone: +91 99999 99999<br />
+        Phone: <a href="tel:+4917647625653">+49 176 47625653</a><br />
         Offices: New Delhi · Hyderabad · Bengaluru
       </p>
     </LegalLayout>
