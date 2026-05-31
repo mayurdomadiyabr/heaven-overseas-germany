@@ -40,6 +40,8 @@ async function odooRpc(url: string, params: unknown) {
 }
 
 async function odooAuthenticate(cfg: OdooCfg) {
+  // Fast path: use provided UID directly (skip authenticate call)
+  if (cfg.uid) return cfg.uid;
   const uid = await odooRpc(`${cfg.url}/jsonrpc`, {
     service: "common",
     method: "authenticate",
@@ -69,6 +71,7 @@ interface OdooCfg {
   url: string;
   db: string;
   username: string;
+  uid?: number;
   apiKey: string;
   tagName: string;
 }
@@ -77,9 +80,11 @@ function odooCfg(): OdooCfg | null {
   const url = (process.env.ODOO_URL || "").replace(/\/+$/, "");
   const db = process.env.ODOO_DB || "";
   const username = process.env.ODOO_USERNAME || "";
+  const uidStr = process.env.ODOO_UID || "";
+  const uid = uidStr ? Number(uidStr) : undefined;
   const apiKey = process.env.ODOO_API_KEY || "";
-  if (!url || !db || !username || !apiKey) return null;
-  return { url, db, username, apiKey, tagName: process.env.ODOO_TAG_NAME || DEFAULT_TAG };
+  if (!url || !db || !apiKey || !(username || uid)) return null;
+  return { url, db, username, uid, apiKey, tagName: process.env.ODOO_TAG_NAME || DEFAULT_TAG };
 }
 
 async function createOdooLead(body: LeadInput): Promise<number> {
