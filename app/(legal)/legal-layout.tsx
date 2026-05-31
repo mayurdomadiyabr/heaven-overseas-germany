@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GHOLogo } from "../page";
+import { GHOLogo } from "../preview/page";
 
 export default function LegalLayout({
   title,
